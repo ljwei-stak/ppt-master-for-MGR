@@ -5076,7 +5076,8 @@ def _create_writable_work_dir(output_path: Path) -> Path:
         for _ in range(3):
             work_dir = parent / f".pptx-build-{os.getpid()}-{uuid.uuid4().hex}"
             try:
-                work_dir.mkdir(mode=0o700)
+                # Windows 0700 drops inherited sandbox ACLs on Python 3.13+.
+                work_dir.mkdir(mode=0o777 if os.name == 'nt' else 0o700)
                 probe_path = work_dir / ".write-probe"
                 probe_path.write_text("ok", encoding="utf-8")
                 probe_path.unlink()

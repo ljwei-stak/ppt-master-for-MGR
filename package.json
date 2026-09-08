@@ -1,6 +1,6 @@
 {
   "name": "@ljwei-stak/ppt-master-for-mgr",
-  "version": "6.3.1",
+  "version": "6.3.2",
   "description": "PPT Master presentation skill for DeepSeek Harness and Model Router GAL",
   "type": "module",
   "main": "./.dsh-plugin/index.mjs",

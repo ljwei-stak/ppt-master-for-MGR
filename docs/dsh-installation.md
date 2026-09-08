@@ -1,10 +1,14 @@
 # PPT Master for Model Router / DeepSeek Harness
 
-`@ljwei-stak/ppt-master-for-mgr` 6.3.1 packages the upstream PPT Master 6.3.0
+`@ljwei-stak/ppt-master-for-mgr` 6.3.2 packages the upstream PPT Master 6.3.0
 workflow with a native DSH host adapter. The distribution version is owned by
 `package.json`; the upstream skill and Claude marketplace metadata retain
-their upstream version and attribution. GitHub tag/Release `v6.3.1` and npm
+their upstream version and attribution. GitHub tag/Release `v6.3.2` and npm
 publish the same distribution.
+
+Version 6.3.2 fixes PPTX export on Windows with Python 3.13+ under the DSH
+workspace sandbox. Assembly directories now inherit the writable parent ACL;
+POSIX directories retain private permissions.
 
 ## Features
 
@@ -27,20 +31,20 @@ provider, and `skill` tool. Use Node.js 22.19+ and Python 3.10+.
 In DSH's plugin management, install or update this package:
 
 ```text
-@ljwei-stak/model-router-galgame@0.4.22
+@ljwei-stak/model-router-galgame@0.4.23
 ```
 
-Router 0.4.22 installs this PPT package and inserts its host plugin in the same
+Router 0.4.23 installs this PPT package and inserts its host plugin in the same
 profile. If Router is already managed separately, the standalone plugin is:
 
 ```text
-@ljwei-stak/ppt-master-for-mgr@6.3.1
+@ljwei-stak/ppt-master-for-mgr@6.3.2
 ```
 
 Apply the package's `cordis.patch.yml` through DSH's bundle installation flow,
 then enable/reload the profile. `npm install` alone downloads files but does
 not apply the DSH profile configuration. Manual profile administrators can
-install with `npm install @ljwei-stak/ppt-master-for-mgr@6.3.1`, then merge the
+install with `npm install @ljwei-stak/ppt-master-for-mgr@6.3.2`, then merge the
 bundled patch. Use only one `ppt-master-for-mgr` entry per profile.
 
 ## Prepare Python
@@ -48,9 +52,9 @@ bundled patch. Use only one `ppt-master-for-mgr` entry per profile.
 Run these commands in the same environment that the DSH shell uses:
 
 ```sh
-npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.1 ppt-master-for-mgr doctor
-npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.1 ppt-master-for-mgr setup
-npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.1 ppt-master-for-mgr doctor
+npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.2 ppt-master-for-mgr doctor
+npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.2 ppt-master-for-mgr setup
+npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.2 ppt-master-for-mgr doctor
 ```
 
 `setup` explicitly runs `python -m pip install -r` against the bundled

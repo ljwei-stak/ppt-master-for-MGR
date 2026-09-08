@@ -1,8 +1,11 @@
 # 在 Model Router / DeepSeek Harness 中使用 PPT Master
 
-`@ljwei-stak/ppt-master-for-mgr` 6.3.1 将上游 PPT Master 6.3.0 工作流打包为
+`@ljwei-stak/ppt-master-for-mgr` 6.3.2 将上游 PPT Master 6.3.0 工作流打包为
 DSH 原生插件。发行版本由 `package.json` 管理；技能和 Claude marketplace
-元数据保留上游版本和署名。GitHub 标签、Release `v6.3.1` 与 npm 对应同一份发行包。
+元数据保留上游版本和署名。GitHub 标签、Release `v6.3.2` 与 npm 对应同一份发行包。
+
+6.3.2 修复了 Windows 上使用 Python 3.13+ 时，DSH 工作区沙箱内 PPTX 导出因
+临时目录权限而失败的问题。组装目录继承可写父目录的 ACL；POSIX 系统仍保留私有权限。
 
 ## 功能
 
@@ -24,19 +27,19 @@ DSH 原生插件。发行版本由 `package.json` 管理；技能和 Claude mark
 在 DSH 插件管理中安装或更新：
 
 ```text
-@ljwei-stak/model-router-galgame@0.4.22
+@ljwei-stak/model-router-galgame@0.4.23
 ```
 
-Router 0.4.22 会安装 PPT 包，并在同一配置中加入对应插件。如果单独管理 Router，
+Router 0.4.23 会安装 PPT 包，并在同一配置中加入对应插件。如果单独管理 Router，
 也可以独立安装：
 
 ```text
-@ljwei-stak/ppt-master-for-mgr@6.3.1
+@ljwei-stak/ppt-master-for-mgr@6.3.2
 ```
 
 通过 DSH 的聚合包安装流程应用包内 `cordis.patch.yml`，然后启用或重新加载配置。
 仅执行 `npm install` 只会下载文件，不会自动应用 DSH 配置。手动管理配置时，可以
-执行 `npm install @ljwei-stak/ppt-master-for-mgr@6.3.1`，再合并包内配置补丁。
+执行 `npm install @ljwei-stak/ppt-master-for-mgr@6.3.2`，再合并包内配置补丁。
 同一配置中只保留一个 `ppt-master-for-mgr` 条目。
 
 ## 准备 Python
@@ -44,9 +47,9 @@ Router 0.4.22 会安装 PPT 包，并在同一配置中加入对应插件。如�
 在 DSH 命令行工具实际使用的环境中执行：
 
 ```sh
-npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.1 ppt-master-for-mgr doctor
-npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.1 ppt-master-for-mgr setup
-npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.1 ppt-master-for-mgr doctor
+npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.2 ppt-master-for-mgr doctor
+npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.2 ppt-master-for-mgr setup
+npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.2 ppt-master-for-mgr doctor
 ```
 
 `setup` 显式运行 `python -m pip install -r`，安装包内依赖清单，需要连接 Python
