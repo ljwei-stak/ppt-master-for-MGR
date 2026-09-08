@@ -29,6 +29,11 @@ directory containing this file as `SKILL_DIR`. Per tool call, expand
 `${SKILL_DIR}` and replace any `skills/ppt-master/` prefix with it. Never `cd`,
 use CWD, or assume a repo checkout. If unavailable, ask; never search or guess.
 
+When running in DeepSeek Harness, read
+[`references/dsh-runtime.md`](references/dsh-runtime.md) through `SKILL_DIR`
+before executing commands. It defines interpreter and writable workspace
+handling for the installed npm package.
+
 1. Read this file.
 2. Run `python3 "${SKILL_DIR}/scripts/attribution_guard.py"`. Any non-zero result
    stops the Skill immediately; do not inspect, repair, or bypass the integrity

@@ -1,0 +1,53 @@
+{
+  "name": "@ljwei-stak/ppt-master-for-mgr",
+  "version": "6.3.1",
+  "description": "PPT Master presentation skill for DeepSeek Harness and Model Router GAL",
+  "type": "module",
+  "main": "./.dsh-plugin/index.mjs",
+  "exports": {
+    ".": "./.dsh-plugin/index.mjs",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "bin": {
+    "ppt-master-for-mgr": "./.dsh-plugin/cli.mjs"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "engines": { "dsh": ">=0.1.2-rc.1" }
+  },
+  "files": [
+    ".dsh-plugin/*.mjs",
+    "cordis.patch.yml",
+    "skills/ppt-master/",
+    "!skills/ppt-master/**/__pycache__/**",
+    "!skills/ppt-master/**/*.pyc",
+    "!skills/ppt-master/**/.env",
+    "!skills/ppt-master/**/.env.local",
+    "!skills/ppt-master/**/node_modules/**",
+    "!skills/ppt-master/scripts/tests/**",
+    "requirements.txt",
+    "README.md",
+    "README_CN.md",
+    "docs/dsh-installation.md",
+    "docs/zh/dsh-installation.md",
+    "LICENSE",
+    "SPONSORS.md",
+    "SPONSORS_CN.md"
+  ],
+  "engines": { "node": ">=22.19" },
+  "dependencies": {
+    "@deepseek-ai/dsh-skill-filesystem": "0.1.2-rc.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ljwei-stak/ppt-master-for-MGR.git"
+  },
+  "homepage": "https://github.com/ljwei-stak/ppt-master-for-MGR#readme",
+  "bugs": { "url": "https://github.com/ljwei-stak/ppt-master-for-MGR/issues" },
+  "author": "Hugo He <heyug3@gmail.com>",
+  "contributors": ["ljwei-stak (DSH integration)"],
+  "license": "MIT",
+  "keywords": ["dsh", "deepseek-harness", "model-router", "ppt", "pptx", "skill"],
+  "publishConfig": { "access": "public" }
+}

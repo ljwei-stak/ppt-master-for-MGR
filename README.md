@@ -1,4 +1,20 @@
-# PPT Master — AI generates native PowerPoint from any document
+# PPT Master for Model Router / DeepSeek Harness
+
+[![npm](https://img.shields.io/npm/v/@ljwei-stak/ppt-master-for-mgr)](https://www.npmjs.com/package/@ljwei-stak/ppt-master-for-mgr)
+[![DSH Release](https://img.shields.io/github/v/release/ljwei-stak/ppt-master-for-MGR)](https://github.com/ljwei-stak/ppt-master-for-MGR/releases)
+
+This fork packages PPT Master as a native DSH skill plugin. Model Router
+`0.4.22` includes `@ljwei-stak/ppt-master-for-mgr@6.3.1`, so a presentation
+request can load the workflow through the native `skill` tool and generate
+editable PPTX in the user's workspace. Python dependencies require explicit
+setup. [DSH installation, features, and troubleshooting](./docs/dsh-installation.md)
+| [中文安装说明](./docs/zh/dsh-installation.md).
+
+The upstream workflow remains PPT Master 6.3.0 by Hugo He (MIT). The upstream
+overview and references below are retained; use the DSH guide above for this
+npm distribution.
+
+## Upstream PPT Master
 
 [![Version](https://img.shields.io/github/v/release/hugohe3/ppt-master?label=version&color=blue)](https://github.com/hugohe3/ppt-master/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

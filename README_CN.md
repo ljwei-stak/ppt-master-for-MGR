@@ -1,4 +1,17 @@
-# PPT Master — AI 生成原生 PowerPoint，支持任意文档输入
+# PPT Master：Model Router / DeepSeek Harness 插件
+
+[![npm](https://img.shields.io/npm/v/@ljwei-stak/ppt-master-for-mgr)](https://www.npmjs.com/package/@ljwei-stak/ppt-master-for-mgr)
+[![DSH 发行版](https://img.shields.io/github/v/release/ljwei-stak/ppt-master-for-MGR)](https://github.com/ljwei-stak/ppt-master-for-MGR/releases)
+
+本分支将 PPT Master 打包为 DSH 原生技能插件。Model Router `0.4.22` 聚合
+`@ljwei-stak/ppt-master-for-mgr@6.3.1`，收到 PPT 需求后可通过原生 `skill` 工具
+加载工作流，在用户工作目录中生成可编辑 PPTX。Python 依赖需要显式安装。
+[安装步骤、功能和常见问题](./docs/zh/dsh-installation.md)。
+
+上游工作流仍为 Hugo He 的 PPT Master 6.3.0，采用 MIT 许可证。下方保留上游介绍
+与参考资料；本 npm 发行包的 DSH 安装方式以上方专用指南为准。
+
+## 上游 PPT Master
 
 [![Version](https://img.shields.io/github/v/release/hugohe3/ppt-master?label=version&color=blue)](https://github.com/hugohe3/ppt-master/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
