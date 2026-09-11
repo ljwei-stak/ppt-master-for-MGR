@@ -1,6 +1,6 @@
 {
   "name": "@ljwei-stak/ppt-master-for-mgr",
-  "version": "6.3.2",
+  "version": "6.3.3",
   "description": "PPT Master presentation skill for DeepSeek Harness and Model Router GAL",
   "type": "module",
   "main": "./.dsh-plugin/index.mjs",
@@ -36,8 +36,22 @@
     "SPONSORS_CN.md"
   ],
   "engines": { "node": ">=22.19" },
-  "dependencies": {
-    "@deepseek-ai/dsh-skill-filesystem": "0.1.2-rc.1"
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/dsh-skill-filesystem": "^0.1.2-rc.1 || ^0.1.5-rc.1"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.2",
+    "@deepseek-ai/dsh-brand": "0.1.5-rc.1",
+    "@deepseek-ai/dsh-fs": "0.1.5-rc.1",
+    "@deepseek-ai/dsh-home-paths": "0.1.5-rc.1",
+    "@deepseek-ai/dsh-invariants": "0.1.5-rc.1",
+    "@deepseek-ai/dsh-llm": "0.1.5-rc.1",
+    "@deepseek-ai/dsh-sandbox": "0.1.5-rc.1",
+    "@deepseek-ai/dsh-scope": "0.1.5-rc.1",
+    "@deepseek-ai/dsh-session": "0.1.5-rc.1",
+    "@deepseek-ai/dsh-skill": "0.1.5-rc.1",
+    "@deepseek-ai/dsh-skill-filesystem": "0.1.5-rc.1"
   },
   "repository": {
     "type": "git",

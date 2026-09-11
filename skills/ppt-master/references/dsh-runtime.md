@@ -14,12 +14,26 @@ to `project_manager.py init`, and retain the absolute path it returns. Do not
 write generated projects, dependency environments, credentials, or user
 configuration into the installed skill directory.
 
+**Hard rule — DSH Desktop 2.0.7 on Windows**: Run Python commands through the
+native code runtime with Node `child_process.spawnSync(executable, args, {
+windowsHide: true })`, passing the executable and arguments separately. Do not
+call the `bash` tool for these commands; its Windows Job runner can report a
+failed tool after a child process exits successfully.
+
 The DSH shell needs Python 3.10+ and the dependencies in
 `${SKILL_DIR}/requirements.txt`. Use the interpreter selected for that shell
 (including an activated virtual environment or `PPT_MASTER_PYTHON`) in place
-of the documented `python3`. If dependencies are missing, report the failed
-command and the explicit setup command from the installation guide. Do not
-install Python packages merely because the plugin was loaded.
+of the documented `python3`. If `PPT_MASTER_PYTHON_ROOT` is set instead, use
+`<root>/envs/ppt-master/Scripts/python.exe` on Windows or
+`<root>/envs/ppt-master/bin/python3` on POSIX. If dependencies are missing,
+report the failed command and the explicit setup command from the installation
+guide. Do not install Python packages merely because the plugin was loaded.
+
+Resolve the interpreter once before the first Python command. On Windows, when
+`PPT_MASTER_PYTHON_ROOT` is absent from the code worker environment, query the
+exact `PPT_MASTER_PYTHON_ROOT` value under `HKCU\Environment` with `reg.exe`
+through the same code runtime. Use only that returned root and never fall back
+to a global interpreter when a managed root is configured.
 
 Read every selected role's reference before executing that role. Role names
 describe workflow responsibilities; the current agent may perform them

@@ -3,8 +3,8 @@
 [![npm](https://img.shields.io/npm/v/@ljwei-stak/ppt-master-for-mgr)](https://www.npmjs.com/package/@ljwei-stak/ppt-master-for-mgr)
 [![DSH 发行版](https://img.shields.io/github/v/release/ljwei-stak/ppt-master-for-MGR)](https://github.com/ljwei-stak/ppt-master-for-MGR/releases)
 
-本分支将 PPT Master 打包为 DSH 原生技能插件。Model Router `0.4.23` 聚合
-`@ljwei-stak/ppt-master-for-mgr@6.3.2`，收到 PPT 需求后可通过原生 `skill` 工具
+本分支将 PPT Master 打包为 DSH 原生技能插件。Model Router `0.4.27` 聚合
+`@ljwei-stak/ppt-master-for-mgr@6.3.3`，收到 PPT 需求后可通过原生 `skill` 工具
 加载工作流，在用户工作目录中生成可编辑 PPTX。Python 依赖需要显式安装。
 [安装步骤、功能和常见问题](./docs/zh/dsh-installation.md)。
 

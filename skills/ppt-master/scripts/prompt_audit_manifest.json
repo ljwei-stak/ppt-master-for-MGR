@@ -2244,6 +2244,10 @@
   "coverage": {
     "exempt": [
       {
+        "glob": "skills/ppt-master/references/dsh-runtime.md",
+        "reason": "Host-specific runtime adapter loaded only by DeepSeek Harness before route selection."
+      },
+      {
         "glob": "skills/ppt-master/workflows/index.md",
         "reason": "Maintainer-only workflow inventory; never loaded during task execution."
       },

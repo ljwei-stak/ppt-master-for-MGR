@@ -4,7 +4,7 @@
 [![DSH Release](https://img.shields.io/github/v/release/ljwei-stak/ppt-master-for-MGR)](https://github.com/ljwei-stak/ppt-master-for-MGR/releases)
 
 This fork packages PPT Master as a native DSH skill plugin. Model Router
-`0.4.23` includes `@ljwei-stak/ppt-master-for-mgr@6.3.2`, so a presentation
+`0.4.27` includes `@ljwei-stak/ppt-master-for-mgr@6.3.3`, so a presentation
 request can load the workflow through the native `skill` tool and generate
 editable PPTX in the user's workspace. Python dependencies require explicit
 setup. [DSH installation, features, and troubleshooting](./docs/dsh-installation.md)

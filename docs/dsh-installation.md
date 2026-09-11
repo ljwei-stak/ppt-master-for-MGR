@@ -1,14 +1,14 @@
 # PPT Master for Model Router / DeepSeek Harness
 
-`@ljwei-stak/ppt-master-for-mgr` 6.3.2 packages the upstream PPT Master 6.3.0
+`@ljwei-stak/ppt-master-for-mgr` 6.3.3 packages the upstream PPT Master 6.3.0
 workflow with a native DSH host adapter. The distribution version is owned by
 `package.json`; the upstream skill and Claude marketplace metadata retain
-their upstream version and attribution. GitHub tag/Release `v6.3.2` and npm
+their upstream version and attribution. GitHub tag/Release `v6.3.3` and npm
 publish the same distribution.
 
-Version 6.3.2 fixes PPTX export on Windows with Python 3.13+ under the DSH
-workspace sandbox. Assembly directories now inherit the writable parent ACL;
-POSIX directories retain private permissions.
+Version 6.3.3 targets DSH Desktop 2.0.7 / SDK 0.1.5-rc.1 and can resolve a
+project-specific interpreter from a configurable managed Python root. It also
+includes the Windows Python 3.13+ PPTX export permission fix from 6.3.2.
 
 ## Features
 
@@ -31,20 +31,20 @@ provider, and `skill` tool. Use Node.js 22.19+ and Python 3.10+.
 In DSH's plugin management, install or update this package:
 
 ```text
-@ljwei-stak/model-router-galgame@0.4.23
+@ljwei-stak/model-router-galgame@0.4.27
 ```
 
-Router 0.4.23 installs this PPT package and inserts its host plugin in the same
+Router 0.4.27 installs this PPT package and inserts its host plugin in the same
 profile. If Router is already managed separately, the standalone plugin is:
 
 ```text
-@ljwei-stak/ppt-master-for-mgr@6.3.2
+@ljwei-stak/ppt-master-for-mgr@6.3.3
 ```
 
 Apply the package's `cordis.patch.yml` through DSH's bundle installation flow,
 then enable/reload the profile. `npm install` alone downloads files but does
 not apply the DSH profile configuration. Manual profile administrators can
-install with `npm install @ljwei-stak/ppt-master-for-mgr@6.3.2`, then merge the
+install with `npm install @ljwei-stak/ppt-master-for-mgr@6.3.3`, then merge the
 bundled patch. Use only one `ppt-master-for-mgr` entry per profile.
 
 ## Prepare Python
@@ -52,17 +52,20 @@ bundled patch. Use only one `ppt-master-for-mgr` entry per profile.
 Run these commands in the same environment that the DSH shell uses:
 
 ```sh
-npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.2 ppt-master-for-mgr doctor
-npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.2 ppt-master-for-mgr setup
-npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.2 ppt-master-for-mgr doctor
+npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.3 ppt-master-for-mgr doctor
+npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.3 ppt-master-for-mgr setup
+npx --yes --package=@ljwei-stak/ppt-master-for-mgr@6.3.3 ppt-master-for-mgr doctor
 ```
 
 `setup` explicitly runs `python -m pip install -r` against the bundled
 requirements. It needs package-index access. An activated virtual environment
 is recommended. Pass `--python <absolute-interpreter-path>` to both commands
 to select one explicitly. Set `PPT_MASTER_PYTHON` to the same executable in
-the DSH shell environment when using a non-default interpreter. The plugin
-does not modify system Python or execute `setup` during npm installation.
+the DSH shell environment when using a non-default interpreter. For a managed
+root containing `envs/ppt-master`, use `--python-root <directory>` or set
+`PPT_MASTER_PYTHON_ROOT`; the CLI will select that environment without falling
+back to a global interpreter. The plugin does not modify system Python or run
+`setup` during npm installation.
 
 `doctor` checks Python and core PPTX imports; it does not test credentials,
 optional tools, remote image/audio services, or model quality. FFmpeg, Pandoc,
